@@ -2,34 +2,37 @@ import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 
 class DatabaseService {
-  static Database? _db;
-  static DatabaseService instance = DatabaseService._init();
+  final dbName = 'db.db';
+  Database? _db;
+  static final DatabaseService instance = DatabaseService._init();
+
   DatabaseService._init();
 
-  Future<Database> get currentdb async {
+  Future<Database> get getDatabase async {
     if (_db == null) {
-      _db = await getDatabase();
+      _db = await initDatabase(); // Await this properly
     }
     return _db!;
   }
 
-  Future<Database> getDatabase() async {
-    final dbDefaultPath = await getDatabasesPath();
-    final dbs = join(dbDefaultPath, 'main_db.db');
-    final database = await openDatabase(
-      dbs,
+  Future<Database> initDatabase() async {
+    final path = await getDatabasesPath();
+    final dbPath = join(path, dbName);
+    final _dbinstance = await openDatabase(
+      dbPath,
       version: 1,
-      onCreate: ((db, version) async {
-        await db.execute('''
-      CREATE TABLE styles (
-      style_id INTEGER PRIMARY KEY AUTOINCREMENT 
-      style_name TEXT NOT NULL 
-      style_type TEXT 
-      style_description TEXT
-      )    
+      onCreate: (db, version) {
+        db.execute('''
+        CREATE TABLE STYLES (
+          styleCode TEXT PRIMARY KEY,
+          styleNo TEXT NOT NULL,
+          designer TEXT,
+          category TEXT,
+          color TEXT NOT NULL
+        ) 
         ''');
-      }),
+      },
     );
-    return database;
+    return _dbinstance;
   }
 }

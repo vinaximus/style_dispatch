@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:sqflite/sqflite.dart';
+import 'package:style_dispatch/services/database_service.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  Database db = await DatabaseService.instance.getDatabase;
   runApp(const MainApp());
 }
 
