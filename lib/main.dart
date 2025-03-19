@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:sqflite/sqflite.dart';
-import 'package:style_dispatch/services/database_service.dart';
+import 'package:style_dispatch/screens/styles/style_manager_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  Database db = await DatabaseService.instance.getDatabase;
+
   runApp(const MainApp());
 }
 
@@ -13,11 +12,9 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
+        body: Center(child: StyleManagerScreen()),
       ),
     );
   }

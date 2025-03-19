@@ -9,16 +9,14 @@ class DatabaseService {
   DatabaseService._init();
 
   Future<Database> get getDatabase async {
-    if (_db == null) {
-      _db = await initDatabase(); // Await this properly
-    }
+    _db ??= await initDatabase();
     return _db!;
   }
 
   Future<Database> initDatabase() async {
     final path = await getDatabasesPath();
     final dbPath = join(path, dbName);
-    final _dbinstance = await openDatabase(
+    final dbinstance = await openDatabase(
       dbPath,
       version: 1,
       onCreate: (db, version) {
@@ -33,6 +31,6 @@ class DatabaseService {
         ''');
       },
     );
-    return _dbinstance;
+    return dbinstance;
   }
 }
