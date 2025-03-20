@@ -10,26 +10,40 @@ class StyleManagerScreen extends StatelessWidget {
     List<Style> styleData = generateTestData();
     return Container(
       margin: EdgeInsets.only(left: 20, right: 20, top: 20),
-      child: Column(
-        children: [
-          //Title
-          Text(style: TextStyle(fontSize: 40), 'Style Management'),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              //Search bar
-              Expanded(
-                child: TextField(
-                  decoration: InputDecoration(label: Text('Search')),
+      child: Container(
+        color: Colors.amber,
+        width: 550,
+        child: Column(
+          children: [
+            //Title
+            Text(style: TextStyle(fontSize: 40), 'Style Management'),
+            SizedBox(
+              height: 20,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                //Search bar
+                SizedBox(
+                  width: 400,
+                  child: TextField(
+                    decoration: InputDecoration(
+                        label: Text('Search'),
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(20))),
+                  ),
                 ),
-              ),
-              Spacer(),
-              IconButton(onPressed: () {}, icon: Icon(Icons.abc))
-            ],
-          ),
-          Expanded(child: StyleListDatagrid(dataSource: styleData))
-          //DataGrid Control Statefull Widget I think
-        ],
+                Spacer(),
+                IconButton(onPressed: () {}, icon: Icon(Icons.abc))
+              ],
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            StyleListDatagrid(dataSource: styleData)
+            //DataGrid Control Statefull Widget I think
+          ],
+        ),
       ),
     );
     throw UnimplementedError();

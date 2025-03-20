@@ -15,13 +15,18 @@ class StyleListDatagrid extends StatefulWidget {
 class _StyleListDatagrid extends State<StyleListDatagrid> {
   @override
   Widget build(BuildContext context) {
-    return SfDataGrid(
+    return SizedBox(
+      height: 400,
+      child: SfDataGrid(
         source: styleDataSource(dataSource: widget.dataSource),
         columns: [
           GridColumn(columnName: 'Style No', label: Text('Style No')),
           GridColumn(columnName: 'Category', label: Text('Category')),
           GridColumn(columnName: 'Designer', label: Text('Designer')),
-        ]);
+        ],
+        rowHeight: 30,
+      ),
+    );
     throw UnimplementedError();
   }
 }
