@@ -11,9 +11,9 @@ class StyleManagerScreen extends StatelessWidget {
     return Container(
       margin: EdgeInsets.only(left: 20, right: 20, top: 20),
       child: Container(
-        color: Colors.amber,
         width: 550,
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             //Title
             Text(style: TextStyle(fontSize: 40), 'Style Management'),
@@ -25,12 +25,15 @@ class StyleManagerScreen extends StatelessWidget {
               children: [
                 //Search bar
                 SizedBox(
-                  width: 400,
+                  width: 300,
+                  height: 30,
                   child: TextField(
                     decoration: InputDecoration(
+                        contentPadding: EdgeInsets.symmetric(horizontal: 15),
+                        fillColor: const Color.fromARGB(255, 223, 212, 212),
+                        filled: true,
                         label: Text('Search'),
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20))),
+                        border: InputBorder.none),
                   ),
                 ),
                 Spacer(),

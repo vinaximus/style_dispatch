@@ -50,9 +50,18 @@ class styleDataSource extends DataGridSource {
   @override
   DataGridRowAdapter? buildRow(DataGridRow row) {
     return DataGridRowAdapter(cells: [
-      Text(row.getCells()[0].value),
-      Text(row.getCells()[1].value),
-      Text(row.getCells()[2].value),
+      Padding(
+        padding: const EdgeInsets.only(left: 8),
+        child: Text(row.getCells()[0].value),
+      ),
+      Padding(
+        padding: const EdgeInsets.only(left: 8),
+        child: Text(row.getCells()[1].value),
+      ),
+      Padding(
+        padding: const EdgeInsets.only(left: 8),
+        child: Text(row.getCells()[2].value),
+      ),
     ]);
     throw UnimplementedError();
   }
