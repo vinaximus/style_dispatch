@@ -20,14 +20,50 @@ class _StyleListDatagrid extends State<StyleListDatagrid> {
       child: SfDataGrid(
         source: styleDataSource(dataSource: widget.dataSource),
         columns: [
-          GridColumn(columnName: 'Style No', label: Text('Style No')),
-          GridColumn(columnName: 'Category', label: Text('Category')),
-          GridColumn(columnName: 'Designer', label: Text('Designer')),
+          GridColumn(
+            columnName: 'Style No',
+            label: Container(
+              padding: EdgeInsets.all(8.0),
+              alignment: Alignment.center,
+              color: Colors.blue,
+              child: Text(
+                'Style No',
+                style:
+                    TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+              ),
+            ),
+          ),
+          GridColumn(
+            columnName: 'Category',
+            label: Container(
+              padding: EdgeInsets.all(8.0),
+              alignment: Alignment.center,
+              color: Colors.blue,
+              child: Text(
+                'Category',
+                style:
+                    TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+              ),
+            ),
+          ),
+          GridColumn(
+            columnName: 'Designer',
+            label: Container(
+              padding: EdgeInsets.all(8.0),
+              alignment: Alignment.center,
+              color: Colors.blue,
+              child: Text(
+                'Designer',
+                style:
+                    TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+              ),
+            ),
+          ),
         ],
-        rowHeight: 30,
+        rowHeight: 40,
+        headerRowHeight: 50,
       ),
     );
-    throw UnimplementedError();
   }
 }
 
@@ -50,19 +86,21 @@ class styleDataSource extends DataGridSource {
   @override
   DataGridRowAdapter? buildRow(DataGridRow row) {
     return DataGridRowAdapter(cells: [
-      Padding(
-        padding: const EdgeInsets.only(left: 8),
-        child: Text(row.getCells()[0].value),
+      Container(
+        alignment: Alignment.centerLeft,
+        padding: EdgeInsets.symmetric(horizontal: 8.0),
+        child: Text(row.getCells()[0].value.toString()),
       ),
-      Padding(
-        padding: const EdgeInsets.only(left: 8),
-        child: Text(row.getCells()[1].value),
+      Container(
+        alignment: Alignment.centerLeft,
+        padding: EdgeInsets.symmetric(horizontal: 8.0),
+        child: Text(row.getCells()[1].value.toString()),
       ),
-      Padding(
-        padding: const EdgeInsets.only(left: 8),
-        child: Text(row.getCells()[2].value),
+      Container(
+        alignment: Alignment.centerLeft,
+        padding: EdgeInsets.symmetric(horizontal: 8.0),
+        child: Text(row.getCells()[2].value.toString()),
       ),
     ]);
-    throw UnimplementedError();
   }
 }
