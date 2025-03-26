@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:style_dispatch/modals/style.dart';
-import 'package:style_dispatch/screens/style_list_datagrid.dart';
+import 'package:style_dispatch/screens/styles/style_edit_form.dart';
+import 'package:style_dispatch/screens/styles/style_list_datagrid.dart';
 
 class StyleManagerScreen extends StatelessWidget {
   StyleManagerScreen({super.key});
@@ -64,7 +65,12 @@ class StyleManagerScreen extends StatelessWidget {
                   Spacer(),
                   IconButton(
                     onPressed: () {
-                      // Add your logic to add a new record here
+                      showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return StyleEditForm();
+                        },
+                      );
                     },
                     icon: Icon(Icons.add,
                         color: Theme.of(context)
