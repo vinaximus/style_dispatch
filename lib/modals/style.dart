@@ -1,4 +1,5 @@
 import 'dart:math';
+// Add a property 'description' as string to the Style class
 
 class Style {
   Style({this.style_id, required this.style_no, this.category, this.designer});
