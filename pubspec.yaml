@@ -9,9 +9,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  path: ^1.9.0
-  sqflite: ^2.4.1
-  syncfusion_flutter_datagrid: ^28.2.12
+  sqflite: ^2.0.0
+  sqflite_common_ffi:
+  syncfusion_flutter_datagrid: ^29.1.35
 
 dev_dependencies:
   flutter_test:
