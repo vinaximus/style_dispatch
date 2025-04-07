@@ -30,10 +30,11 @@ class DatabaseService {
       onCreate: (db, version) {
         db.execute('''
         CREATE TABLE STYLES (
-          styleCode TEXT PRIMARY KEY,
+          styleCode INTEGER PRIMARY KEY AUTOINCREMENT,
           styleNo TEXT NOT NULL,
           designer TEXT,
-          category TEXT
+          category TEXT,
+          description TEXT
         )
         ''');
       },

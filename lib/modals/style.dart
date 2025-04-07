@@ -2,12 +2,13 @@ import 'dart:math';
 // Add a property 'description' as string to the Style class
 
 class Style {
-  Style({this.style_id, required this.style_no, this.category, this.designer});
+  Style({this.style_id, required this.style_no, this.category, this.designer,this.description});
 
   int? style_id;
   String style_no;
   String? category;
   String? designer;
+  String? description;
 }
 
 List<Style> generateRandomTestData() {
