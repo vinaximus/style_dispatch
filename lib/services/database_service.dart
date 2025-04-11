@@ -1,4 +1,3 @@
-import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 
@@ -51,6 +50,7 @@ class DatabaseService {
       conflictAlgorithm: ConflictAlgorithm.replace,
     );
   }
+
   // Function to fetch all styles from the database
   Future<List<Map<String, dynamic>>> fetchStyles() async {
     final db = await getDatabase;
